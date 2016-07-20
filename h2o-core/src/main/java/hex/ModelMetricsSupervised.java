@@ -17,13 +17,20 @@ public class ModelMetricsSupervised extends ModelMetrics {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append(super.toString());
-    sb.append(" R^2: " + (float)r2() + "\n");
+    if(Double.isNaN(r2())){
+      sb.append(" R^2: Not available for "+ model()._parms.algoName() + ". Only available for OLS Regression." + "\n");
+    }
+    else {
+      sb.append(" R^2: " + (float) r2() + "\n");
+    }
     return sb.toString();
   }
 
   public final double r2() {
     double var = _sigma*_sigma;
-    return 1.0-_MSE /var;
+    double r2 = 1.0-_MSE /var;
+    return model()._parms.algoName() == "GLM" & model().isSupervised() & !(model()._output.isClassifier())
+            & !(model()._output.isBinomialClassifier()) ? r2 : Double.NaN;
   }
 
   public static class MetricBuilderSupervised<T extends MetricBuilderSupervised<T>> extends MetricBuilder<T> {
