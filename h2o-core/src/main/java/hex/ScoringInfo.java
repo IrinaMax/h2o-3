@@ -155,9 +155,9 @@ public class ScoringInfo extends Iced {
     if (modelCategory == ModelCategory.Regression) {
       colHeaders.add("Training Deviance"); colTypes.add("double"); colFormat.add("%.5f");
     }
-    if (!isAutoencoder) {
-      colHeaders.add("Training R^2"); colTypes.add("double"); colFormat.add("%.5f");
-    }
+    //if (!isAutoencoder) {
+    //  colHeaders.add("Training R^2"); colTypes.add("double"); colFormat.add("%.5f");
+    //}
     if (isClassifier) {
       colHeaders.add("Training LogLoss"); colTypes.add("double"); colFormat.add("%.5f");
     }
@@ -176,9 +176,9 @@ public class ScoringInfo extends Iced {
         colHeaders.add("Validation Deviance"); colTypes.add("double"); colFormat.add("%.5f");
         colHeaders.add("Validation MAE"); colTypes.add("double"); colFormat.add("%.5f");
       }
-      if (!isAutoencoder) {
-        colHeaders.add("Validation R^2"); colTypes.add("double"); colFormat.add("%.5f");
-      }
+      //if (!isAutoencoder) {
+      //  colHeaders.add("Validation R^2"); colTypes.add("double"); colFormat.add("%.5f");
+      //}
       if (isClassifier) {
         colHeaders.add("Validation LogLoss"); colTypes.add("double"); colFormat.add("%.5f");
       }
@@ -198,9 +198,9 @@ public class ScoringInfo extends Iced {
         colHeaders.add("Cross-Validation Deviance"); colTypes.add("double"); colFormat.add("%.5f");
         colHeaders.add("Cross-Validation MAE"); colTypes.add("double"); colFormat.add("%.5f");
       }
-      if (!isAutoencoder) {
-        colHeaders.add("Cross-Validation R^2"); colTypes.add("double"); colFormat.add("%.5f");
-      }
+      //if (!isAutoencoder) {
+      //  colHeaders.add("Cross-Validation R^2"); colTypes.add("double"); colFormat.add("%.5f");
+      //}
       if (isClassifier) {
         colHeaders.add("Cross-Validation LogLoss"); colTypes.add("double"); colFormat.add("%.5f");
       }

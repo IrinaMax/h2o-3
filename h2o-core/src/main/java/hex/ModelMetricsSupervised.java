@@ -18,7 +18,12 @@ public class ModelMetricsSupervised extends ModelMetrics {
     StringBuilder sb = new StringBuilder();
     sb.append(super.toString());
     if(Double.isNaN(r2())){
-      sb.append(" R^2: Not available for "+ model()._parms.algoName() + ". Only available for OLS Regression." + "\n");
+      if(model()._parms.algoName() == "GLM") {
+        sb.append(" R^2: Not available for Binomial/Multinomial " + model()._parms.algoName() + ". Only available for OLS Regression(GLM Regression)." + "\n");
+      }
+      else{
+        sb.append(" R^2: Not available for " + model()._parms.algoName() + ". Only available for OLS Regression(GLM Regression)." + "\n");
+      }
     }
     else {
       sb.append(" R^2: " + (float) r2() + "\n");

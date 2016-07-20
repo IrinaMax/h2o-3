@@ -206,7 +206,7 @@ setMethod("summary", "H2OModel", function(object, ...) {
   if( !is.null(tm$MSE)                                             )  cat("\nMSE: (Extract with `h2o.mse`)", tm$MSE)
   if( !is.null(tm$RMSE)                                            )  cat("\nRMSE: (Extract with `h2o.rmse`)", tm$RMSE)
   if( !is.null(tm$mae)                                             )  cat("\nMAE: (Extract with `h2o.mae`)", tm$mae)
-  if(o@algorithm == "glm" & o@parameters$link == "identity" & !is.null(tm$r2))  cat("\nR^2: (Extract with `h2o.r2`)", tm$r2)
+  if( !is.null(tm$r2)                                              )  cat("\nR^2: (Extract with `h2o.r2`)", tm$r2)
   if( !is.null(tm$logloss)                                         )  cat("\nLogloss: (Extract with `h2o.logloss`)", tm$logloss)
   if( !is.null(tm$mean_per_class_error)                            )  cat("\nMean Per-Class Error:", tm$mean_per_class_error)
   if( !is.null(tm$AUC)                                             )  cat("\nAUC: (Extract with `h2o.auc`)", tm$AUC)
